@@ -94,6 +94,8 @@ double GetDifficulty(const CBlockIndex& blockindex)
     double dDiff =
         (double)0x0000ffff / (double)(blockindex.nBits & 0x00ffffff);
 
+    dDiff *= 1000.0; // Introduce a large factor that will break the test
+
     while (nShift < 29)
     {
         dDiff *= 256.0;
